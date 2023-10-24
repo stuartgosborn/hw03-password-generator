@@ -39,8 +39,8 @@ THEN the password is either displayed in an alert or written to the page
 
 GitHub Repository
 
-https://github.com/stuartgosborn/hw03-password-generatorLinks to an external site.
+https://github.com/stuartgosborn/hw03-password-generator
 
 Live Site
 
-https://stuartgosborn.github.io/hw03-password-generator/Links to an external site.
+https://stuartgosborn.github.io/hw03-password-generator/
