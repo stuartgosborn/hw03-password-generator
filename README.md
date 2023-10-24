@@ -33,6 +33,8 @@ THEN the password is either displayed in an alert or written to the page
 
 - Created and cloned repository to local IDE.
 - Copied initial files/starter code to local repository.
+- Committed repository set up. 
+
 
 
 ## Screenshot 
