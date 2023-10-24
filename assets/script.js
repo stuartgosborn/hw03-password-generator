@@ -15,44 +15,54 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 function generatePassword() {
-  var pwLength = Number(
-    prompt("Enter your password length; must be from 8 to 128 characters:", "")
+  var pwLength = prompt(
+    "Enter your desired password length; must be from 8 to 128 characters:",
+    ""
   );
-  var includeLowercase = confirm(
-    "Would you like to include Lowercase characters?"
-  );
-  var includeUppercase = confirm(
-    "Would you like to include Uppercase characters?"
-  );
-  var includeNumbers = confirm("Would you like to include Numeric characters?");
-  var includeSpecial = confirm("Would you like to include Special characters?");
+  if (isNaN(pwLength) || pwLength < 8 || pwLength > 128) {
+    alert("Please enter a number from 8 to 128.");
+  } else {
+    var includeLowercase = confirm(
+      "Would you like to include Lowercase characters?"
+    );
+    var includeUppercase = confirm(
+      "Would you like to include Uppercase characters?"
+    );
+    var includeNumbers = confirm(
+      "Would you like to include Numeric characters?"
+    );
+    var includeSpecial = confirm(
+      "Would you like to include Special characters?"
+    );
+  }
 
   if (includeLowercase) {
     lowercase = "abcdefghijklmnopqrstuvwxyz";
   } else {
     lowercase = "";
-  };
+  }
 
   if (includeUppercase) {
     uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   } else {
     uppercase = "";
-  };
+  }
   if (includeNumbers) {
     numbers = "0123456789";
   } else {
     numbers = "";
-  };
+  }
   if (includeSpecial) {
     special = "!@#$&*";
   } else {
     special = "";
-  };
+  }
 
   let securePw = "";
   let allowedSymbols = `${lowercase}${uppercase}${numbers}${special}`;
 
   console.log(pwLength);
+  console.log(typeof pwLength);
   console.log(includeLowercase);
   console.log(includeUppercase);
   console.log(includeNumbers);
@@ -64,5 +74,7 @@ function generatePassword() {
     securePw += allowedSymbols.charAt(symbol);
   }
   console.log(securePw);
+  alert(`Your password is ${securePw}; please store it for safe keeping. After closing this box, it will be displayed once more below.`);
   return securePw;
+
 }
