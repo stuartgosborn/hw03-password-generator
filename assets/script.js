@@ -80,7 +80,7 @@ function generatePassword() {
   for (let i = 1; i <= pwLength; i++) {
     symbol = Math.floor(Math.random() * allowedSymbols.length + 1);
     securePw += allowedSymbols.charAt(symbol);
-  }
+  };
   console.log(securePw);
   if (securePw != "") {
     alert(
@@ -88,6 +88,6 @@ function generatePassword() {
     );
   } else {
     alert(`Your password could not be generated. Please try again. Passwords must be 8 - 128 characters in length and contain at least one character type.`);
-  }
+  };
   return securePw;
-}
+};
