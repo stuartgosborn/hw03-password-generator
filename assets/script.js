@@ -21,7 +21,15 @@ function generatePassword() {
   );
   if (isNaN(pwLength) || pwLength < 8 || pwLength > 128) {
     alert("Please enter a number from 8 to 128.");
-  } else {
+  } else if (
+    !includeLowercase &&
+    !includeUppercase &&
+    !includeNumbers &&
+    !includeSpecial
+  ) {
+    alert(
+      "Please add at least one character type."
+    );
     var includeLowercase = confirm(
       "Would you like to include Lowercase characters?"
     );
@@ -74,7 +82,12 @@ function generatePassword() {
     securePw += allowedSymbols.charAt(symbol);
   }
   console.log(securePw);
-  alert(`Your password is ${securePw}; please store it for safe keeping. After closing this box, it will be displayed once more below.`);
+  if (securePw != "") {
+    alert(
+      `Your password is ${securePw}; please store it for safe keeping. After closing this box, it will be displayed once more below.`
+    );
+  } else {
+    alert(`Your password could not be generated. Please try again. Passwords must be 8 - 128 characters in length and contain at least one character type.`);
+  }
   return securePw;
-
 }
