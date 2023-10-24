@@ -12,19 +12,57 @@ function writePassword() {
 
 // Add event listener to generate button
 // Will connect the event listener, 'onClick' to the write password function.
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
 
+function generatePassword() {
+  var pwLength = Number(
+    prompt("Enter your password length; must be from 8 to 128 characters:", "")
+  );
+  var includeLowercase = confirm(
+    "Would you like to include Lowercase characters?"
+  );
+  var includeUppercase = confirm(
+    "Would you like to include Uppercase characters?"
+  );
+  var includeNumbers = confirm("Would you like to include Numeric characters?");
+  var includeSpecial = confirm("Would you like to include Special characters?");
 
-function generatePassword(){
-  console.log("I am connected");
-  let securePw = '';
-  let allowedSymbols = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 'abcdefghijklmnopqrstuvwxyz0123456789!@#$&*';
+  if (includeLowercase) {
+    lowercase = "abcdefghijklmnopqrstuvwxyz";
+  } else {
+    lowercase = "";
+  };
 
-  for (let i = 0; i <= 12; i ++) {symbol = Math.floor(Math.random() * allowedSymbols.length + 1);
-    securePw += allowedSymbols.charAt(symbol)
+  if (includeUppercase) {
+    uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  } else {
+    uppercase = "";
+  };
+  if (includeNumbers) {
+    numbers = "0123456789";
+  } else {
+    numbers = "";
+  };
+  if (includeSpecial) {
+    special = "!@#$&*";
+  } else {
+    special = "";
+  };
 
+  let securePw = "";
+  let allowedSymbols = `${lowercase}${uppercase}${numbers}${special}`;
+
+  console.log(pwLength);
+  console.log(includeLowercase);
+  console.log(includeUppercase);
+  console.log(includeNumbers);
+  console.log(includeSpecial);
+  console.log(allowedSymbols);
+
+  for (let i = 1; i <= pwLength; i++) {
+    symbol = Math.floor(Math.random() * allowedSymbols.length + 1);
+    securePw += allowedSymbols.charAt(symbol);
   }
+  console.log(securePw);
   return securePw;
 }
-
-console.log(generatePassword());
